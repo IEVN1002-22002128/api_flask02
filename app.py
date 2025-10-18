@@ -1,14 +1,20 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-  return "Hello, World!"
+@app.route('/index')
+def index():
+  titulo="Pagina de inicio"
+  listado=['Python', 'Flask', 'Jinja2', 'HTML', 'CSS']
+  return render_template('index.html', titulo=titulo, listado=listado)
 
-@app.route('/hola')
+@app.route('/calculos')
 def about():
-  return "ola xd"
+  return render_template('calculos.html')
+
+@app.route('/distancia')
+def distancia():
+  return render_template('distancia.html')
 
 @app.route('/user/<string:user>')
 def user(user):
@@ -35,6 +41,25 @@ def func1(n1,n2):
 def func2(dft="sss"):
   return "el valor dft es:" + dft
 
+@app.route('/prueba/<int:num>')
+def func3():
+  return '''
+
+<html>
+<head>
+  <link></link>
+    <title> Página de prueba </title>
+  </head>
+  <body>
+    <h1>HOLA SOY EL ANTICRISTO</h1>
+    <p>PAGINA DE PROEBA XD</p>
+  </body>
+</html>
+
+'''
+
 if __name__ == '__main__':
   app.run(debug=True)
+
+
 
