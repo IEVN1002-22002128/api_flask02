@@ -1,5 +1,22 @@
-{% extends "layout.html"%}
-    {% block container%}
-    
-    <h1>distanciers</h1>
-{%endblock%}
+{% extends "layout.html" %}
+{% import "_macros.html" as datos_macro %}
+
+{% block container %}
+<h1>Calculador de Distancia entre Coordenadas</h1>
+
+<form action="" method="post">
+  <h3>Punto A</h3>
+  {{ datos_macro.datos('puntoA_X', 'Valor X del Punto A', 'number') }}
+  {{ datos_macro.datos('puntoA_Y', 'Valor Y del Punto A', 'number') }}
+
+  <h3>Punto B</h3>
+  {{ datos_macro.datos('puntoB_X', 'Valor X del Punto B', 'number') }}
+  {{ datos_macro.datos('puntoB_Y', 'Valor Y del Punto B', 'number') }}
+
+  <button type="submit" class="btn btn-primary">Calcular distancia</button>
+</form>
+
+{% if resultado %}
+  <h3 class="mt-3">{{ resultado }}</h3>
+{% endif %}
+{% endblock %}
