@@ -1,0 +1,9 @@
+{
+"python.defaultInterpreterPath": ".venv/Scripts/python.exe",
+"python.analysis.extraPaths": [
+"./src"
+],
+"python.analysis.autoSearchPaths": true,
+"python.analysis.useVenv": true,
+"python.analysis.typeCheckingMode": "off"
+}
